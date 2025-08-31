@@ -71,8 +71,3 @@ Refer to the project's roadmap for phased development and feature rollout:
 
 ## License
 This project is licensed under the MIT License.
-
-
-[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/67708569/6369ca97-5264-4bca-a307-24751af0c5e3/MERN_Learning_Platform_Full_Roadmap.pdf)
-[2](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/67708569/7076b4ec-051b-468d-b545-dd75b35b5f9b/MERN_Learning_Platform_Roadmap.pdf)
-[3](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/67708569/0fa9e64c-e55d-46e3-9b3a-e4615d1c8b53/Portfolio_Projects_Plan.pdf)
