@@ -268,6 +268,15 @@ mern-learning-platform/
 │   │   │   ├── Gstudent.png
 │   │   │   └── logo.png
 │   │   ├── components/
+│   │   │   ├── Auth/
+│   │   │   │   ├── Login.js
+│   │   │   │   ├── Login.css
+│   │   │   │   ├── Signup.js
+│   │   │   │   ├── Signup.css
+│   │   │   │   ├── AuthTabs.js
+│   │   │   │   ├── AuthTabs.css
+│   │   │   │   ├── SocialLogin.js
+│   │   │   │   └── SocialLogin.css
 │   │   │   ├── Navbar.js
 │   │   │   ├── Navbar.css
 │   │   │   └── Footer.js
