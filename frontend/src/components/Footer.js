@@ -2,15 +2,18 @@ import React from "react";
 import "./Footer.css";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import logo from "../assets/logo.png"; // Your logo import
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
 
-        {/* Brand Info */}
+        {/* Brand Info with Logo */}
         <div className="footer-col">
-          <h2 className="footer-logo">MERN Learning</h2>
+          <div className="footer-brand">
+            <img src={logo} alt="MERN Learning Platform Logo" className="footer-logo-img" />
+          </div>
           <p>
             Empowering learners to become job-ready developers with structured
             learning paths, hands-on projects, and expert mentorship.
@@ -37,24 +40,23 @@ function Footer() {
         </div>
 
         {/* Social Media */}
-<div className="footer-col">
-  <h3>Follow Us</h3>
-  <div className="social-icons">
-    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-      <FaFacebookF />
-    </a>
-    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-      <FaTwitter />
-    </a>
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-      <FaLinkedinIn />
-    </a>
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-      <FaInstagram />
-    </a>
-  </div>
-</div>
-
+        <div className="footer-col">
+          <h3>Follow Us</h3>
+          <div className="social-icons">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF />
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              <FaTwitter />
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn />
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+          </div>
+        </div>
 
       </div>
 
