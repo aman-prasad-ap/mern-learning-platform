@@ -78,20 +78,24 @@
   background: #e8f0fe;
   color: #16a085;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .auth-buttons .login-btn:hover {
   background: #fff;
+  text-decoration: none;
 }
 
 .auth-buttons .signup-btn {
   background: #0f705c;
   color: white;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .auth-buttons .signup-btn:hover {
   background: #0c5747;
+  text-decoration: none;
 }
 
 /* Hamburger (mobile) */

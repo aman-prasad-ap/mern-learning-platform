@@ -1,22 +1,8 @@
-// import "./Home.css";
-
-// function Home() {
-//   return (
-//     <div className="home">
-//       <section className="hero">
-//         <h1>Welcome to MERN Learning Platform</h1>
-//         <p>Learn Full Stack Development with structured courses and real projects.</p>
-//         <button className="explore-btn">Explore Courses</button>
-//       </section>
-//     </div>
-//   );
-// }
-
-// export default Home;
+import React from "react";
 import "./Home.css";
-//import course1 from "../assets/full-stack.jpg";
+import fullStack from "../assets/full-stack.png";
 import dsaImg from "../assets/DSA.png";
-//import course3 from "../assets/python.jpg";
+import pythonImg from "../assets/python.png";
 import student1 from "../assets/Bstudent1.png";
 import student2 from "../assets/Gstudent.png";
 import student3 from "../assets/Bstudent2.png";
@@ -114,11 +100,8 @@ function Home() {
         <p className="section-subtitle">Choose from our most in-demand courses</p>
 
         <div className="courses-grid">
-          {/* Course Card 1 */}
           <div className="course-card">
-            <div className="course-img">
-              {/*<img src={dsaImg} alt="Full Stack Development" /> */}
-            </div>
+            <img src={fullStack} alt="Full Stack Development" className="course-img" />
             <h3>Full Stack Web Development</h3>
             <p>Master MERN stack with real-world projects and job-ready skills.</p>
             <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
@@ -128,7 +111,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Course Card 2 */}
           <div className="course-card">
             <img src={dsaImg} alt="DSA Course" className="course-img" />
             <h3>Data Structures & Algorithms</h3>
@@ -140,12 +122,8 @@ function Home() {
             </div>
           </div>
 
-
-          {/* Course Card 3 */}
           <div className="course-card">
-            <div className="course-img">
-              {/* <img src={dsaImg} alt="Python for Data Science" />*/}
-            </div>
+            <img src={pythonImg} alt="Python for Data Science" className="course-img" />
             <h3>Python for Data Science</h3>
             <p>Learn Python, Pandas, NumPy, and ML basics for Data Science career.</p>
             <div className="course-rating">⭐⭐⭐⭐☆ (4.3)</div>
@@ -156,6 +134,7 @@ function Home() {
           </div>
         </div>
       </section>
+
 
 
 

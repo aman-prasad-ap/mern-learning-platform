@@ -27,8 +27,8 @@ function Navbar() {
         </div>
 
         <div className="auth-buttons">
-          <button className="login-btn">Login</button>
-          <button className="signup-btn">Sign Up</button>
+          <Link to="/login" className="login-btn">Login</Link>
+          <Link to="/signup" className="signup-btn">Sign Up</Link>
         </div>
       </div>
 
