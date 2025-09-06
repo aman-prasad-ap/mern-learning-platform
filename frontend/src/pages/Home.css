@@ -304,22 +304,26 @@
 }
 
 /* Stats Section */
-.stats-grid {
+.testimonials .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* exactly 4 columns */
   gap: 25px;
-  max-width: 900px;
-  margin: auto;
+  width: 100%;
+  max-width: 1200px; /* widen container so columns have room */
+  margin: 0 auto;
 }
 
-.stat-box {
+
+.testimonials .stat-box {
+  min-width: 0;               /* prevents content forcing column wider */
+  box-sizing: border-box;
   background: #138d75;
   color: #fff;
   padding: 30px 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
 }
-
 .stat-box h3 {
   font-size: 2rem;
   margin-bottom: 8px;

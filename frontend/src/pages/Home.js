@@ -118,7 +118,7 @@ function Home() {
             <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
             <div className="course-footer">
               <span className="price">₹4999</span>
-              <a href="/courses/dsa" className="enroll-btn">Enroll</a>
+              <a href="/courses/dsa" className="enroll-btn">Enroll Now</a>
             </div>
           </div>
 

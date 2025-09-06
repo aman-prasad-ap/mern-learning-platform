@@ -13,7 +13,11 @@ app.use(express.json());
 
 // Routes
 import authRoutes from './routes/auth.js';
+import courseRoutes from './routes/courses.js';
+
 app.use('/api/auth', authRoutes);
+app.use('/api/courses', courseRoutes);
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {

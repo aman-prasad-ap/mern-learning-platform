@@ -18,14 +18,14 @@
   gap: 0px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: white; /* logo text white */
+  color: white;
 }
 
 .logo img {
   height: 70px;
   padding-top: 10px;
   width: auto;
-  filter: brightness(0) invert(1); /* makes dark logos white-ish */
+  filter: brightness(0) invert(1);
 }
 
 /* Navigation Links (centered) */
@@ -34,7 +34,7 @@
   gap: 25px;
   transition: all 0.3s ease;
   flex: 1;
-  justify-content: center; /* center links */
+  justify-content: center;
 }
 
 .nav-links a {
@@ -56,7 +56,6 @@
   align-items: center;
   gap: 25px;
 }
-
 
 /* Auth Buttons (right side) */
 .auth-buttons {
@@ -104,6 +103,7 @@
   font-size: 1.8rem;
   cursor: pointer;
 }
+
 /* Right section: links + buttons (desktop) */
 .nav-right {
   display: flex;
@@ -111,8 +111,7 @@
   gap: 25px;
 }
 
-
-/* Dashboard and Logout buttons - ADD THESE */
+/* Dashboard and Logout buttons */
 .dashboard-btn {
   padding: 8px 16px;
   background: #16a085;
@@ -143,26 +142,12 @@
   background: #c82333;
 }
 
-/* Mobile styles for new buttons */
-@media (max-width: 768px) {
-  .dashboard-btn,
-  .logout-btn {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  .logout-btn {
-    margin-top: 10px;
-  }
-}
-
 /* Mobile styles */
 @media (max-width: 768px) {
   .nav-right {
     position: absolute;
     top: 60px;
-    right: 10px; /* add margin from right edge */
+    right: 10px;
     background: #16a085;
     flex-direction: column;
     align-items: flex-start;
@@ -199,6 +184,17 @@
   .auth-buttons .login-btn,
   .auth-buttons .signup-btn {
     width: 100%;
+  }
+
+  .dashboard-btn,
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .logout-btn {
+    margin-top: 10px;
   }
 
   .hamburger {
