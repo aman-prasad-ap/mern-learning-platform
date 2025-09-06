@@ -117,29 +117,29 @@
   color: white;
 }
 
-/* Courses Section - Using Home Page Styles */
-.popular-courses {
+/* Featured Courses Section - Grid Layout */
+.featured-courses {
   padding: 60px 0;
   text-align: center;
+  background: #e8f0fe;
 }
 
-.courses-header {
+.featured-courses .courses-header {
   margin-bottom: 40px;
 }
 
-.courses-header h2 {
+.featured-courses h2 {
   font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 10px;
 }
 
-.section-subtitle {
+.featured-courses .section-subtitle {
   font-size: 1.1rem;
   color: #555;
 }
 
-/* Courses Grid - Exact same as Home page */
-.courses-grid {
+.featured-courses .courses-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
@@ -147,7 +147,7 @@
   margin: auto;
 }
 
-.course-card {
+.featured-courses .course-card {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
@@ -158,15 +158,15 @@
   flex-direction: column;
 }
 
-.course-card:hover {
+.featured-courses .course-card:hover {
   transform: translateY(-5px);
 }
 
-.course-image {
+.featured-courses .course-image {
   margin-bottom: 15px;
 }
 
-.course-img {
+.featured-courses .course-img {
   display: block;
   width: 100%;
   height: 200px;
@@ -174,13 +174,13 @@
   border-radius: 10px;
 }
 
-.course-content h3 {
+.featured-courses .course-content h3 {
   font-size: 1.3rem;
   color: #2c3e50;
   margin-bottom: 10px;
 }
 
-.course-content p {
+.featured-courses .course-content p {
   color: #555;
   font-size: 0.95rem;
   margin-bottom: 15px;
@@ -188,50 +188,50 @@
   line-height: 1.5;
 }
 
-.course-meta {
+.featured-courses .course-meta {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
-.course-category,
-.course-level {
+.featured-courses .course-category,
+.featured-courses .course-level {
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
 }
 
-.course-category {
+.featured-courses .course-category {
   background: #e0f2fe;
   color: #0369a1;
 }
 
-.course-level {
+.featured-courses .course-level {
   background: #f0fdf4;
   color: #166534;
 }
 
-.course-rating {
+.featured-courses .course-rating {
   color: #f39c12;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-.course-footer {
+.featured-courses .course-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.price {
+.featured-courses .price {
   font-weight: bold;
   color: #138d75;
   font-size: 1.1rem;
 }
 
-.enroll-btn {
+.featured-courses .enroll-btn {
   background: #138d75;
   color: white;
   padding: 8px 16px;
@@ -243,7 +243,134 @@
   transition: 0.3s ease;
 }
 
-.enroll-btn:hover {
+.featured-courses .enroll-btn:hover {
+  background: #0f705c;
+}
+
+/* Popular Courses Section - Horizontal Scroll Layout */
+.popular-courses {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.popular-courses h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.popular-courses .section-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Horizontal scrolling container */
+.popular-courses .courses-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  padding: 20px 10px 30px;
+  scrollbar-width: thin;
+  scrollbar-color: #138d75 #f1f1f1;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  max-width: 100%;
+  justify-content: flex-start;
+}
+
+/* Custom scrollbar for WebKit browsers */
+.popular-courses .courses-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.popular-courses .courses-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.popular-courses .courses-grid::-webkit-scrollbar-thumb {
+  background: #138d75;
+  border-radius: 10px;
+}
+
+.popular-courses .courses-grid::-webkit-scrollbar-thumb:hover {
+  background: #0f705c;
+}
+
+/* Course cards with fixed width for horizontal layout */
+.popular-courses .course-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+
+.popular-courses .course-card:hover {
+  transform: translateY(-5px);
+}
+
+.popular-courses .course-img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.popular-courses .course-content h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.popular-courses .course-content p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.popular-courses .course-rating {
+  color: #f39c12;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.popular-courses .course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popular-courses .price {
+  font-weight: bold;
+  color: #138d75;
+  font-size: 1.1rem;
+}
+
+.popular-courses .enroll-btn {
+  background: #138d75;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.popular-courses .enroll-btn:hover {
   background: #0f705c;
 }
 
@@ -358,22 +485,35 @@
     padding-bottom: 10px;
   }
   
-  .courses-grid {
+  .featured-courses .courses-grid {
     grid-template-columns: 1fr;
   }
   
-  .course-footer {
+  .featured-courses .course-footer,
+  .popular-courses .course-footer {
     flex-direction: column;
     gap: 16px;
     align-items: stretch;
   }
   
-  .enroll-btn {
+  .featured-courses .enroll-btn,
+  .popular-courses .enroll-btn {
     justify-content: center;
+    text-align: center;
   }
   
   .cta-content h2 {
     font-size: 1.8rem;
+  }
+  
+  /* Responsive adjustments for horizontal scroll */
+  .popular-courses .course-card {
+    min-width: 260px;
+    max-width: 260px;
+  }
+  
+  .popular-courses .course-img {
+    height: 140px;
   }
 }
 
@@ -393,11 +533,30 @@
   .search-input {
     padding: 12px 15px 12px 40px;
   }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .course-card img.course-img {
+  
+  /* Responsive adjustments for horizontal scroll */
+  .popular-courses {
+    padding: 40px 0;
+  }
+  
+  .popular-courses h2 {
+    font-size: 1.8rem;
+  }
+  
+  .popular-courses .course-card {
+    min-width: 240px;
+    max-width: 240px;
+    padding: 15px;
+  }
+  
+  .featured-courses .course-img {
     height: 160px;
   }
-} 
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .featured-courses .course-img {
+    height: 160px;
+  }
+}

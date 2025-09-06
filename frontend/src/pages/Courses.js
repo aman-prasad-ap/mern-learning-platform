@@ -5,6 +5,7 @@ import fullStack from "../assets/full-stack.png";
 import dsaImg from "../assets/DSA.png";
 import pythonImg from "../assets/python.png";
 import reactImg from "../assets/react.png";
+import javaImg from "../assets/java.png";
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -84,7 +85,7 @@ const Courses = () => {
             className="search-input"
           />
         </div>
-        
+
         <div className="filter-buttons">
           {categories.map(category => (
             <button
@@ -98,8 +99,9 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* Courses Grid - Using Home Page Style */}
-      <section className="popular-courses">
+
+      {/* Featured Courses Section */}
+      <section className="featured-courses">
         <div className="courses-header">
           <h2>Featured Courses</h2>
           <p className="section-subtitle">{filteredCourses.length} courses available</p>
@@ -112,18 +114,18 @@ const Courses = () => {
                 <div className="course-image">
                   <img src={reactImg} alt={course.title} className="course-img" />
                 </div>
-                
+
                 <div className="course-content">
                   <h3>{course.title}</h3>
                   <p>{course.description}</p>
-                  
+
                   <div className="course-meta">
                     <span className="course-category">{course.category}</span>
                     <span className="course-level">{course.level}</span>
                   </div>
 
                   <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
-                  
+
                   <div className="course-footer">
                     <span className="price">
                       {course.price === 0 ? 'Free' : `₹${course.price}`}
@@ -181,9 +183,19 @@ const Courses = () => {
               <button className="enroll-btn">Enroll Now</button>
             </div>
           </div>
+
+          <div className="course-card">
+              <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
+              <h3>Java with Spring Boot</h3>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+              <div className="course-footer">
+                <span className="price">₹5999</span>
+                <button className="enroll-btn">Enroll Now</button>
+              </div>
+            </div>
         </div>
       </section>
-
 
       {/* Call to Action */}
       <section className="courses-cta">
