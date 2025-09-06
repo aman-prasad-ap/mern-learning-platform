@@ -1,5 +1,8 @@
 # MERN Learning Platform (with GenAI + Cloud)
 
+## username : student@example.com
+## password : password123
+
 ## Project Overview
 A full-stack MERN (MongoDB, Express, React, Node) learning platform where users can sign up, enroll in courses, and utilize Generative AI features such as quiz generation, course summarization, and an AI assistant chatbot. The project also integrates cloud storage and deployment for scalable hosting.
 

@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 
 // Load env vars
 dotenv.config();
@@ -12,7 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', require('./routes/auth'));
+import authRoutes from './routes/auth.js';
+app.use('/api/auth', authRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -20,5 +21,5 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong!' });
 });
 
-// Remove app.listen() from here - it should only be in server.js
-module.exports = app; // Just export the app, don't start the server here
+// Export only the app (server starts in server.js)
+export default app;

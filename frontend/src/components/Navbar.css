@@ -111,6 +111,52 @@
   gap: 25px;
 }
 
+
+/* Dashboard and Logout buttons - ADD THESE */
+.dashboard-btn {
+  padding: 8px 16px;
+  background: #16a085;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.dashboard-btn:hover {
+  background: #138d75;
+  text-decoration: none;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}
+
+/* Mobile styles for new buttons */
+@media (max-width: 768px) {
+  .dashboard-btn,
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .logout-btn {
+    margin-top: 10px;
+  }
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   .nav-right {

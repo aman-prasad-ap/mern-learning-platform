@@ -120,6 +120,28 @@
   text-decoration: underline;
 }
 
+/* Error message styling - ADD THIS */
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #fcc;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Loading state for buttons - ADD THIS */
+.btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  background: #ccc;
+}
+
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .login-container {

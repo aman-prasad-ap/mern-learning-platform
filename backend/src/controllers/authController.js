@@ -1,5 +1,5 @@
-const User = require('../models/User');
-const generateToken = require('../utils/generateToken');
+import User from '../models/User.js';
+import generateToken from '../utils/generateToken.js';
 
 // @desc    Register user
 // @route   POST /api/auth/register
@@ -7,6 +7,8 @@ const generateToken = require('../utils/generateToken');
 const registerUser = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
+
+    console.log('Registration attempt for:', email);
 
     // Check if user exists
     const userExists = await User.findOne({ email });
@@ -25,6 +27,8 @@ const registerUser = async (req, res) => {
       role: role || 'student'
     });
 
+    console.log('User created successfully:', user.email);
+
     if (user) {
       res.status(201).json({
         success: true,
@@ -38,7 +42,8 @@ const registerUser = async (req, res) => {
       });
     }
   } catch (error) {
-    console.error('Register error:', error);
+    console.error('❌ Register error details:', error);
+    console.error('❌ Error stack:', error.stack);
     res.status(500).json({
       success: false,
       message: error.message
@@ -52,6 +57,8 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+
+    console.log('Login attempt for:', email);
 
     // Check for user
     const user = await User.findOne({ email }).select('+password');
@@ -74,7 +81,8 @@ const loginUser = async (req, res) => {
       });
     }
   } catch (error) {
-    console.error('Login error:', error);
+    console.error('❌ Login error details:', error);
+    console.error('❌ Error stack:', error.stack);
     res.status(500).json({
       success: false,
       message: error.message
@@ -94,7 +102,7 @@ const getMe = async (req, res) => {
       data: user
     });
   } catch (error) {
-    console.error('Get user error:', error);
+    console.error('❌ Get user error:', error);
     res.status(500).json({
       success: false,
       message: error.message
@@ -102,8 +110,5 @@ const getMe = async (req, res) => {
   }
 };
 
-module.exports = {
-  registerUser,
-  loginUser,
-  getMe
-};
+// Export as default object
+export default { registerUser, loginUser, getMe };
