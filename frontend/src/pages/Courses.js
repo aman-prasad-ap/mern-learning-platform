@@ -194,7 +194,152 @@ const Courses = () => {
                 <button className="enroll-btn">Enroll Now</button>
               </div>
             </div>
+
+            <div className="course-card">
+            <img src={fullStack} alt="Full Stack Development" className="course-img" />
+            <h3>Full Stack Web Development</h3>
+            <p>Master MERN stack with real-world projects and job-ready skills.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
+            <div className="course-footer">
+              <span className="price">₹4999</span>
+              <button className="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+
+          <div className="course-card">
+            <img src={dsaImg} alt="DSA Course" className="course-img" />
+            <h3>Data Structures & Algorithms</h3>
+            <p>Master problem-solving and coding interviews.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
+            <div className="course-footer">
+              <span className="price">₹4999</span>
+              <a href="/courses/dsa" className="enroll-btn">Enroll Now</a>
+            </div>
+          </div>
+
+          <div className="course-card">
+            <img src={pythonImg} alt="Python for Data Science" className="course-img" />
+            <h3>Python for Data Science</h3>
+            <p>Learn Python, Pandas, NumPy, and ML basics for Data Science career.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.3)</div>
+            <div className="course-footer">
+              <span className="price">₹4499</span>
+              <button className="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+
+          <div className="course-card">
+              <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
+              <h3>Java with Spring Boot</h3>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+              <div className="course-footer">
+                <span className="price">₹5999</span>
+                <button className="enroll-btn">Enroll Now</button>
+              </div>
+            </div>
+
         </div>
+        <div className="courses-grid">
+          <div className="course-card">
+            <img src={fullStack} alt="Full Stack Development" className="course-img" />
+            <h3>Full Stack Web Development</h3>
+            <p>Master MERN stack with real-world projects and job-ready skills.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
+            <div className="course-footer">
+              <span className="price">₹4999</span>
+              <button className="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+
+          <div className="course-card">
+            <img src={dsaImg} alt="DSA Course" className="course-img" />
+            <h3>Data Structures & Algorithms</h3>
+            <p>Master problem-solving and coding interviews.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
+            <div className="course-footer">
+              <span className="price">₹4999</span>
+              <a href="/courses/dsa" className="enroll-btn">Enroll Now</a>
+            </div>
+          </div>
+
+          <div className="course-card">
+            <img src={pythonImg} alt="Python for Data Science" className="course-img" />
+            <h3>Python for Data Science</h3>
+            <p>Learn Python, Pandas, NumPy, and ML basics for Data Science career.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.3)</div>
+            <div className="course-footer">
+              <span className="price">₹4499</span>
+              <button className="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+
+          <div className="course-card">
+              <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
+              <h3>Java with Spring Boot</h3>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+              <div className="course-footer">
+                <span className="price">₹5999</span>
+                <button className="enroll-btn">Enroll Now</button>
+              </div>
+            </div>
+
+            <div className="course-card">
+            <img src={fullStack} alt="Full Stack Development" className="course-img" />
+            <h3>Full Stack Web Development</h3>
+            <p>Master MERN stack with real-world projects and job-ready skills.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
+            <div className="course-footer">
+              <span className="price">₹4999</span>
+              <button className="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+
+          <div className="course-card">
+            <img src={dsaImg} alt="DSA Course" className="course-img" />
+            <h3>Data Structures & Algorithms</h3>
+            <p>Master problem-solving and coding interviews.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
+            <div className="course-footer">
+              <span className="price">₹4999</span>
+              <a href="/courses/dsa" className="enroll-btn">Enroll Now</a>
+            </div>
+          </div>
+
+          <div className="course-card">
+            <img src={pythonImg} alt="Python for Data Science" className="course-img" />
+            <h3>Python for Data Science</h3>
+            <p>Learn Python, Pandas, NumPy, and ML basics for Data Science career.</p>
+            <div className="course-rating">⭐⭐⭐⭐☆ (4.3)</div>
+            <div className="course-footer">
+              <span className="price">₹4499</span>
+              <button className="enroll-btn">Enroll Now</button>
+            </div>
+          </div>
+
+          <div className="course-card">
+              <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
+              <h3>Java with Spring Boot</h3>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+              <div className="course-footer">
+                <span className="price">₹5999</span>
+                <button className="enroll-btn">Enroll Now</button>
+              </div>
+            </div>
+
+        </div>
+
+        <div className="load-more-container">
+    <button className="load-more-btn">
+      <span>Load More</span>
+      <svg className="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </button>
+  </div>
       </section>
 
       {/* Call to Action */}
