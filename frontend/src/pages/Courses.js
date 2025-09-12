@@ -54,7 +54,7 @@ const Courses = () => {
       {/* Header Section */}
       <section className="courses-hero">
         <div className="hero-content">
-          <h1>Discover Your Path to Mastery</h1>
+          <h1>Code, Create, and Conquer Your Goals</h1>
           <p>Join thousands of students learning with our expert-led courses</p>
           <div className="hero-stats">
             <div className="stat">
@@ -187,7 +187,7 @@ const Courses = () => {
           <div className="course-card">
               <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
               <h3>Java with Spring Boot</h3>
-              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and APIs.</p>
               <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
               <div className="course-footer">
                 <span className="price">₹5999</span>
@@ -231,7 +231,7 @@ const Courses = () => {
           <div className="course-card">
               <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
               <h3>Java with Spring Boot</h3>
-              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and APIs</p>
               <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
               <div className="course-footer">
                 <span className="price">₹5999</span>
@@ -277,7 +277,7 @@ const Courses = () => {
           <div className="course-card">
               <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
               <h3>Java with Spring Boot</h3>
-              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and APIs.</p>
               <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
               <div className="course-footer">
                 <span className="price">₹5999</span>
@@ -321,7 +321,7 @@ const Courses = () => {
           <div className="course-card">
               <img src={javaImg} alt="Java with Spring Boot" className="course-img" />
               <h3>Java with Spring Boot</h3>
-              <p>Build enterprise-grade applications using Java, Spring Boot, and REST APIs.</p>
+              <p>Build enterprise-grade applications using Java, Spring Boot, and APIs.</p>
               <div className="course-rating">⭐⭐⭐⭐⭐ (4.7)</div>
               <div className="course-footer">
                 <span className="price">₹5999</span>

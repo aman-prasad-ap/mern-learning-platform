@@ -106,7 +106,7 @@ function Home() {
             <div className="course-card">
               <img src={fullStack} alt="Full Stack Development" className="course-img" />
               <h3>Full Stack Web Development</h3>
-              <p>Master MERN stack with real-world projects and job-ready skills.</p>
+              <p>Master MERN stack with real-world projects, job-ready skills, and portfolio development.</p>
               <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
               <div className="course-footer">
                 <span className="price">₹4999</span>
@@ -117,7 +117,7 @@ function Home() {
             <div className="course-card">
               <img src={dsaImg} alt="DSA Course" className="course-img" />
               <h3>Data Structures & Algorithms</h3>
-              <p>Master problem-solving and coding interviews.</p>
+              <p>Master problem-solving and coding interviews with algorithms and data structures.</p>
               <div className="course-rating">⭐⭐⭐⭐☆ (4.5)</div>
               <div className="course-footer">
                 <span className="price">₹4999</span>
