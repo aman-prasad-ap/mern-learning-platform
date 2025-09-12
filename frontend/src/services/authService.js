@@ -3,9 +3,9 @@ import api from './api';
 export const register = async (userData) => {
   try {
     const response = await api.post('/auth/register', userData);
-    if (response.data.data.token) {
-      localStorage.setItem('token', response.data.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.data));
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
     }
     return response.data;
   } catch (error) {
@@ -16,9 +16,9 @@ export const register = async (userData) => {
 export const login = async (userData) => {
   try {
     const response = await api.post('/auth/login', userData);
-    if (response.data.data.token) {
-      localStorage.setItem('token', response.data.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.data));
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
     }
     return response.data;
   } catch (error) {
@@ -38,4 +38,14 @@ export const getCurrentUser = () => {
 
 export const getToken = () => {
   return localStorage.getItem('token');
+};
+
+// Additional function to get user profile (for AuthContext)
+export const getProfile = async () => {
+  try {
+    const response = await api.get('/auth/me');
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
 };

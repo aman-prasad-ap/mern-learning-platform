@@ -16,4 +16,32 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Add response interceptor to handle token expiration
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
+// Auth API functions
+export const authAPI = {
+  login: (credentials) => api.post('/auth/login', credentials),
+  register: (userData) => api.post('/auth/register', userData),
+  getProfile: () => api.get('/auth/me'),
+};
+
+// Courses API functions
+export const coursesAPI = {
+  getAll: () => api.get('/courses'),
+  getById: (id) => api.get(`/courses/${id}`),
+  enroll: (courseId) => api.post('/courses/enroll', { courseId }),
+  getEnrolled: () => api.get('/courses/user/enrolled'),
+};
+
+// Export the base api instance as well
 export default api;

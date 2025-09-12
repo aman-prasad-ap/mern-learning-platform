@@ -1,23 +1,87 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../context/AuthContext';
 import { getCurrentUser } from '../services/authService';
+import { coursesAPI } from '../services/api';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const [user, setUser] = useState(null);
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [loading, setLoading] = useState(true);
-  //const [activeTab, setActiveTab] = useState('overview');
+  const [error, setError] = useState('');
+  const { user: authUser } = useAuth();
+  
+  // Use user from auth context or fall back to localStorage
+  const user = authUser || getCurrentUser();
 
   useEffect(() => {
-    const currentUser = getCurrentUser();
-    setUser(currentUser);
-    setLoading(false);
-  }, []);
+    const fetchEnrolledCourses = async () => {
+      try {
+        const response = await coursesAPI.getEnrolled();
+        
+        // Handle different response structures
+        let coursesData = [];
+        
+        if (Array.isArray(response.data)) {
+          // If response.data is already an array
+          coursesData = response.data;
+        } else if (response.data.courses && Array.isArray(response.data.courses)) {
+          // If response.data has a courses array
+          coursesData = response.data.courses;
+        } else if (response.data.data && Array.isArray(response.data.data)) {
+          // If response.data has a data array
+          coursesData = response.data.data;
+        } else if (response.data.enrollments && Array.isArray(response.data.enrollments)) {
+          // If response.data has an enrollments array
+          coursesData = response.data.enrollments;
+        }
+        
+        console.log('Enrolled courses data:', coursesData);
+        setEnrolledCourses(coursesData);
+      } catch (error) {
+        console.error('Error fetching enrolled courses:', error);
+        setError('Failed to load enrolled courses');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (user) {
+      fetchEnrolledCourses();
+    } else {
+      setLoading(false);
+    }
+  }, [user]);
+
+  // Safe filtering function
+  const getCompletedCourses = () => {
+    if (!Array.isArray(enrolledCourses)) return 0;
+    
+    return enrolledCourses.filter(course => {
+      // Handle different course object structures
+      const progress = course.progress || 
+                       (course.enrollment && course.enrollment.progress) || 
+                       (course.course && course.course.progress) || 
+                       0;
+      return progress === 100;
+    }).length;
+  };
 
   if (loading) {
     return (
       <div className="dashboard-loading">
         <div className="loading-spinner"></div>
         <p>Loading your dashboard...</p>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="dashboard-container">
+        <div className="not-authenticated">
+          <h2>Please log in to view your dashboard</h2>
+          <a href="/login" className="btn-primary">Login</a>
+        </div>
       </div>
     );
   }
@@ -38,69 +102,75 @@ const Dashboard = () => {
         </div>
       </div>
 
+      {error && (
+        <div className="error-banner">
+          <i className="fas fa-exclamation-triangle"></i>
+          {error}
+        </div>
+      )}
+
       {/* Stats Cards */}
-    <div className="stats-grid">
-    <div className="stat-card">
-        <div className="stat-icon" style={{background: '#ff6b6b'}}>
-        <i className="fas fa-book"></i>
+      <div className="stats-grid">
+        <div className="stat-card">
+          <div className="stat-icon" style={{background: '#ff6b6b'}}>
+            <i className="fas fa-book"></i>
+          </div>
+          <div className="stat-content">
+            <h3>{Array.isArray(enrolledCourses) ? enrolledCourses.length : 0}</h3>
+            <p>Courses Enrolled</p>
+          </div>
         </div>
-        <div className="stat-content">
-        <h3>5</h3>
-        <p>Courses Enrolled</p>
-        </div>
-    </div>
 
-    <div className="stat-card">
-        <div className="stat-icon" style={{background: '#4ecdc4'}}>
-        <i className="fas fa-check-circle"></i>
+        <div className="stat-card">
+          <div className="stat-icon" style={{background: '#4ecdc4'}}>
+            <i className="fas fa-check-circle"></i>
+          </div>
+          <div className="stat-content">
+            <h3>{getCompletedCourses()}</h3>
+            <p>Courses Completed</p>
+          </div>
         </div>
-        <div className="stat-content">
-        <h3>2</h3>
-        <p>Courses Completed</p>
-        </div>
-    </div>
 
-    <div className="stat-card">
-        <div className="stat-icon" style={{background: '#45b7d1'}}>
-        <i className="fas fa-clock"></i>
+        <div className="stat-card">
+          <div className="stat-icon" style={{background: '#45b7d1'}}>
+            <i className="fas fa-clock"></i>
+          </div>
+          <div className="stat-content">
+            <h3>24h</h3>
+            <p>Learning Time</p>
+          </div>
         </div>
-        <div className="stat-content">
-        <h3>24h</h3>
-        <p>Learning Time</p>
-        </div>
-    </div>
 
-    <div className="stat-card">
-        <div className="stat-icon" style={{background: '#f9a826'}}>
-        <i className="fas fa-trophy"></i>
+        <div className="stat-card">
+          <div className="stat-icon" style={{background: '#f9a826'}}>
+            <i className="fas fa-trophy"></i>
+          </div>
+          <div className="stat-content">
+            <h3>8</h3>
+            <p>Achievements</p>
+          </div>
         </div>
-        <div className="stat-content">
-        <h3>8</h3>
-        <p>Achievements</p>
-        </div>
-    </div>
 
-    {/* NEW STATS CARDS - ADD THESE TWO */}
-    <div className="stat-card">
-        <div className="stat-icon" style={{background: '#9b59b6'}}>
-        <i className="fas fa-certificate"></i>
+        <div className="stat-card">
+          <div className="stat-icon" style={{background: '#9b59b6'}}>
+            <i className="fas fa-certificate"></i>
+          </div>
+          <div className="stat-content">
+            <h3>3</h3>
+            <p>Certificates</p>
+          </div>
         </div>
-        <div className="stat-content">
-        <h3>3</h3>
-        <p>Certificates</p>
-        </div>
-    </div>
 
-    <div className="stat-card">
-        <div className="stat-icon" style={{background: '#e74c3c'}}>
-        <i className="fas fa-star"></i>
+        <div className="stat-card">
+          <div className="stat-icon" style={{background: '#e74c3c'}}>
+            <i className="fas fa-star"></i>
+          </div>
+          <div className="stat-content">
+            <h3>92%</h3>
+            <p>Completion Rate</p>
+          </div>
         </div>
-        <div className="stat-content">
-        <h3>92%</h3>
-        <p>Completion Rate</p>
-        </div>
-    </div>
-    </div>
+      </div>
 
       {/* Main Content */}
       <div className="dashboard-content">
@@ -113,38 +183,33 @@ const Dashboard = () => {
               <button className="btn-link">View All</button>
             </div>
             <div className="progress-list">
-              <div className="progress-item">
-                <div className="progress-info">
-                  <h4>React Masterclass</h4>
-                  <p>Web Development</p>
-                </div>
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{width: '75%'}}></div>
-                </div>
-                <span className="progress-percent">75%</span>
-              </div>
-
-              <div className="progress-item">
-                <div className="progress-info">
-                  <h4>Node.js Fundamentals</h4>
-                  <p>Backend Development</p>
-                </div>
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{width: '45%'}}></div>
-                </div>
-                <span className="progress-percent">45%</span>
-              </div>
-
-              <div className="progress-item">
-                <div className="progress-info">
-                  <h4>MongoDB Essentials</h4>
-                  <p>Database</p>
-                </div>
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{width: '30%'}}></div>
-                </div>
-                <span className="progress-percent">30%</span>
-              </div>
+              {!Array.isArray(enrolledCourses) || enrolledCourses.length === 0 ? (
+                <p className="no-courses">You haven't enrolled in any courses yet.</p>
+              ) : (
+                enrolledCourses.map(course => {
+                  // Extract course data based on different possible structures
+                  const courseData = course.course || course;
+                  const progress = course.progress || 
+                                 (course.enrollment && course.enrollment.progress) || 
+                                 0;
+                  
+                  return (
+                    <div key={courseData._id || courseData.id} className="progress-item">
+                      <div className="progress-info">
+                        <h4>{courseData.title || 'Untitled Course'}</h4>
+                        <p>{courseData.category || 'General'}</p>
+                      </div>
+                      <div className="progress-bar">
+                        <div 
+                          className="progress-fill" 
+                          style={{width: `${progress}%`}}
+                        ></div>
+                      </div>
+                      <span className="progress-percent">{progress}%</span>
+                    </div>
+                  );
+                })
+              )}
             </div>
           </div>
 

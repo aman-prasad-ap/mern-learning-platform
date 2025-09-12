@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { login } from '../../services/authService'; // Import the login function
+import { useAuth } from '../../context/AuthContext';
+import { login as authLogin } from '../../services/authService';
 import './Login.css';
 import SocialLogin from './SocialLogin';
 
@@ -12,6 +13,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login: setAuthUser } = useAuth();
 
   const { email, password } = formData;
 
@@ -25,11 +27,16 @@ const Login = () => {
     setError('');
     
     try {
-      await login({ email, password });
-      navigate('/dashboard'); // Redirect to dashboard after login
-      window.location.reload(); // Refresh to update navbar
+      const result = await authLogin({ email, password });
+      
+      if (result.user) {
+        setAuthUser(result.user);
+        navigate('/dashboard');
+      } else {
+        setError(result.message || 'Login failed. Please try again.');
+      }
     } catch (error) {
-      setError(error.message || 'Login failed. Please try again.');
+      setError(error.message || 'An unexpected error occurred. Please try again.');
     }
     
     setLoading(false);
